@@ -48,7 +48,6 @@ genro-toolchain = "genro_toolchain.cli:main"
 gnr-dockerize = "genro_toolchain.cli:dockerize_main"
 
 [project.urls]
-Documentation = "https://genro-toolchain.readthedocs.io"
 Repository = "https://github.com/genropy/genro-toolchain"
 
 [tool.hatch.build.targets.wheel]
