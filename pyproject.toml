@@ -36,12 +36,19 @@ test = [
 dev = [
     "ruff>=0.1.0",
 ]
+docs = [
+    "sphinx>=7.2",
+    "myst-parser>=2.0",
+    "sphinx-rtd-theme>=2.0",
+    "sphinx-copybutton>=0.5",
+]
 
 [project.scripts]
 genro-toolchain = "genro_toolchain.cli:main"
 gnr-dockerize = "genro_toolchain.cli:dockerize_main"
 
 [project.urls]
+Documentation = "https://genro-toolchain.readthedocs.io"
 Repository = "https://github.com/genropy/genro-toolchain"
 
 [tool.hatch.build.targets.wheel]

@@ -7,6 +7,9 @@ library only), `git` and `docker`.
 The first tool is `dockerize`, a drop-in replacement for `gnr app dockerize`,
 so a CI pipeline can build an application image without installing Genropy.
 
+Full documentation: [genro-toolchain.readthedocs.io](https://genro-toolchain.readthedocs.io)
+(sources in [docs/](docs/)).
+
 ## Install
 
 ```bash
