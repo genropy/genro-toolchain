@@ -1,0 +1,64 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "genro-toolchain"
+version = "0.1.0"
+description = "Standalone build tools for Genropy applications (no Genropy install required)"
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+requires-python = ">=3.11"
+authors = [
+    { name = "Genropy Team" }
+]
+keywords = ["genropy", "docker", "ci", "build", "toolchain"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Software Development :: Build Tools",
+]
+# Standard library only: the tool must install in a bare CI runner.
+dependencies = []
+
+[project.optional-dependencies]
+test = [
+    "pytest>=8.0.0",
+    "pytest-cov>=4.0.0",
+    "pyyaml>=6.0",
+]
+dev = [
+    "ruff>=0.1.0",
+]
+
+[project.scripts]
+genro-toolchain = "genro_toolchain.cli:main"
+gnr-dockerize = "genro_toolchain.cli:dockerize_main"
+
+[project.urls]
+Repository = "https://github.com/genropy/genro-toolchain"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/genro_toolchain"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.coverage.run]
+source = ["src/genro_toolchain"]
+branch = true
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+src = ["src"]
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "B", "UP"]

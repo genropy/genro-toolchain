@@ -1,0 +1,24 @@
+Genro-Toolchain
+Copyright 2026 Softwell S.r.l.
+
+This project is licensed under Apache-2.0; see LICENSE.
+
+src/genro_toolchain/dockerize/ is a standalone reimplementation of the
+`gnr app dockerize` command from GenroPy. The generated Dockerfile layout,
+gunicorn and supervisord configuration templates, image labels and
+docker-compose output are derived from:
+
+Frozen upstream revision: 5dd6d6bf7
+https://github.com/genropy/genropy
+  gnrpy/gnr/app/cli/gnrdockerize.py
+  gnrpy/gnr/dev/builder.py
+  gnrpy/gnr/app/pathresolver.py
+  gnrpy/gnr/utils/dockercompose.py
+
+Original source attribution:
+Copyright (c) 2007-2025 Softwell Srl - Milano
+
+Modified for genro-toolchain on 2026-11-11: removed every dependency on
+GenroPy, Mako and PyYAML; instance lookup accepts a path; the main
+repository is exported from the local checkout by default; build failures
+(clone/checkout) now stop the run instead of being logged and ignored.
