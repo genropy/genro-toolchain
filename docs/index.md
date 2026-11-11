@@ -1,7 +1,7 @@
 # genro-toolchain
 
 Standalone build tools for [Genropy](https://github.com/genropy/genropy)
-applications. **No Genropy installation needed**: only Python ≥ 3.11
+applications. **No Genropy installation needed**: only Python ≥ 3.10
 (standard library only), `git` and `docker`.
 
 The first tool is **dockerize**, a drop-in replacement for

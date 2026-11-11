@@ -1,7 +1,7 @@
 # genro-toolchain
 
 Standalone build tools for Genropy applications that must run **without
-Genropy installed** (CI runners). Runtime: Python >= 3.11 standard library
+Genropy installed** (CI runners). Runtime: Python >= 3.10 standard library
 only - never add runtime dependencies (PyYAML is a test-only dependency).
 
 - `src/genro_toolchain/dockerize/` - replacement for `gnr app dockerize`

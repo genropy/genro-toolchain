@@ -7,9 +7,11 @@ name = "genro-toolchain"
 version = "0.1.0"
 description = "Standalone build tools for Genropy applications (no Genropy install required)"
 readme = "README.md"
-license = "Apache-2.0"
+# Table form on purpose: the SPDX string form ("Apache-2.0") breaks the build
+# with old system pip (e.g. Ubuntu 22.04), which leaks packaging<24.2 into it.
+license = { text = "Apache-2.0" }
 license-files = ["LICENSE", "NOTICE"]
-requires-python = ">=3.11"
+requires-python = ">=3.10"
 authors = [
     { name = "Genropy Team" }
 ]
@@ -62,7 +64,7 @@ source = ["src/genro_toolchain"]
 branch = true
 
 [tool.ruff]
-target-version = "py311"
+target-version = "py310"
 line-length = 100
 src = ["src"]
 

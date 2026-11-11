@@ -103,7 +103,10 @@ def export_head(repo_root: Path, dest: Path) -> None:
     )
     assert proc.stdout is not None
     with tarfile.open(fileobj=proc.stdout, mode="r|") as archive:
-        archive.extractall(dest, filter="tar")
+        if hasattr(tarfile, "tar_filter"):
+            archive.extractall(dest, filter="tar")
+        else:  # Python < 3.10.12; the archive comes from our own checkout
+            archive.extractall(dest)
     _, stderr = proc.communicate()
     if proc.returncode != 0:
         raise ToolchainError(f"git archive failed in {repo_root}: {stderr.decode().strip()}")

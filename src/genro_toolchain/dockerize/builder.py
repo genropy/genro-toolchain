@@ -169,7 +169,7 @@ class Dockerizer:
         return commit
 
     def _labels(self, planned: list[_PlannedRepo]) -> dict[str, str]:
-        now = str(datetime.datetime.now(datetime.UTC))
+        now = str(datetime.datetime.now(datetime.timezone.utc))
         main = next(p for p in planned if p.repo.is_main)
         source = (
             "" if main.repo.url == str(self.main_root) else git.strip_credentials(main.repo.url)
@@ -197,7 +197,7 @@ class Dockerizer:
 
     def _dockerfile(self, planned: list[_PlannedRepo]) -> str:
         name = self.instance.name
-        now = datetime.datetime.now(datetime.UTC)
+        now = datetime.datetime.now(datetime.timezone.utc)
         lines = [
             f"# Docker image for instance {name}",
             f"# Dockerfile built on {now} by genro-toolchain {__version__}",

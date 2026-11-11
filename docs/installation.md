@@ -2,7 +2,7 @@
 
 ## Requirements
 
-- Python 3.11 or newer. The tool uses the standard library only, so it
+- Python 3.10 or newer. The tool uses the standard library only, so it
   installs in a bare CI runner in a few seconds.
 - `git` on the `PATH`. It is used to export the instance repository and to
   clone the dependencies.
